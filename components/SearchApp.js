@@ -1,7 +1,6 @@
 import React from "react";
 import ResultItem from "./ResultItem";
 import SearchForm from "./SearchForm";
-import "./style.css";
 
 export default class SearchApp extends React.Component {
   constructor() {
@@ -52,15 +51,11 @@ export default class SearchApp extends React.Component {
         {this.state.isLoading
           ? "Searching..."
           : `Found ${this.state.results.length} results`}
-        <div className="container">
-          <div className="row">
-            <ul className="media-list">
-              {this.state.results.map((song, index) => {
-                return <ResultItem key={index} song={song} />;
-              })}
-            </ul>
-          </div>
-        </div>
+        <ul className="media-list">
+          {this.state.results.map((song, index) => {
+            return <ResultItem key={index} song={song} />;
+          })}
+        </ul>
       </div>
     );
   }
